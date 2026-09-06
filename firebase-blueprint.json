@@ -1,0 +1,23 @@
+{
+  "entities": {
+    "Note": {
+      "title": "Note",
+      "type": "object",
+      "description": "User submitted note with author email and timestamp",
+      "properties": {
+        "id": { "type": "string" },
+        "text": { "type": "string" },
+        "userId": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "createdAt": { "type": "object" }
+      },
+      "required": ["text", "userId", "userEmail"]
+    }
+  },
+  "firestore": {
+    "/notes/{noteId}": {
+      "entity": "Note",
+      "description": "Notes collection readable and writable by authenticated users"
+    }
+  }
+}

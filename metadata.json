@@ -1,0 +1,6 @@
+{
+  "name": "MindReflect - AI Journal & Reflection",
+  "description": "Real-time notes application with Firebase Google Authentication, Firestore database write form, and live feed updates.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

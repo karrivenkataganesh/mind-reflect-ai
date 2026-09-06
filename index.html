@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindReflect - AI Journal & Reflection</title>
+    <meta name="description" content="Real-time notes application with Firebase Google Authentication, Firestore database write form, and live feed updates." />
+    <meta property="og:title" content="MindReflect - AI Journal & Reflection" />
+    <meta property="og:description" content="Real-time notes application with Firebase Google Authentication, Firestore database write form, and live feed updates." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      (function() {
+        // Prevent benign Vite HMR websocket disconnection noise in cloud sandbox
+        function isHmrError(msg) {
+          if (!msg) return false;
+          var s = typeof msg === 'string' ? msg : (msg.message || msg.reason || String(msg));
+          return s.indexOf('WebSocket') !== -1 || s.indexOf('websocket') !== -1 || s.indexOf('failed to connect to websocket') !== -1;
+        }
+        window.addEventListener('unhandledrejection', function(e) {
+          if (isHmrError(e.reason)) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+          }
+        }, true);
+        window.addEventListener('error', function(e) {
+          if (isHmrError(e.message) || isHmrError(e.error)) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+          }
+        }, true);
+        var origConsoleError = console.error;
+        console.error = function() {
+          for (var i = 0; i < arguments.length; i++) {
+            if (isHmrError(arguments[i])) return;
+          }
+          origConsoleError.apply(console, arguments);
+        };
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
